@@ -107,7 +107,7 @@ def count_x_workdays(year_range=None, months=None, date_range=None,
     assert type(process_dates) is not str, process_dates
     years, months, date_range = process_dates
 
-    x_workdays = pd.DataFrame()
+    x_holidays, x_workdays = pd.DataFrame(), pd.DataFrame()
 
     if date_range:
         start_date, end_date = date_range
@@ -158,7 +158,7 @@ def count_x_workdays(year_range=None, months=None, date_range=None,
 
     return_dfs = []
 
-    if return_holidays and len(x_holidays)>0:
+    if return_holidays:
         return_dfs.append(x_holidays)
     
     if return_workdays:
